@@ -18,7 +18,9 @@ Este repositorio fue creado con el fin de almacenar todas las entregas de Federi
 
 ---
 
-## 📋 Table of Contents
+## 📋 Tabla de contenido
+
+https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/main/README.md?plain=1
 
 1. 🐺 [What is this API ?](#what-is-this-api)
 2. 🃏 [Available roles](#available-roles)
