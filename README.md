@@ -246,6 +246,12 @@ kmeans_model.fit_predict(X) #Entreno y predigo
 Con KMeans se obtuvo 3 clusters bien definidos, también utilizando el Score de Silhouette.
 
 <p align="center">
+  <img src="Otros/5.png" width="1000" alt="logo"/>
+</p>
+
+Como se puede ver, el número de clusters recomendado es 3.
+
+<p align="center">
   <img src="Otros/3.png" width="1000" alt="logo"/>
 </p>
 
