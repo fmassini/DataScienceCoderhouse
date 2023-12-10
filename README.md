@@ -113,14 +113,11 @@ Como se explicaba en la introducción, para comenzar a producir es necesario cla
 Si las referencias que vienen en la base, pertenecen a distintas clases, se deberá inspeccionar y clasificar, de lo contrario no hará falta, y la base se abatecerá directamente a la clase correspondiente.
 
 ```py
-
 DSNX['CLASES/BASE'] = DSNX.groupby(['BASE', 'VERSION'])['CLASE'].transform('nunique') #Genero la columna CLASES/BASE
-
 DSNX['INSPECCIÓN'] = np.where(DSNX['CLASES/BASE']>1, 1, 0) #Si la base tiene referencias pertenecientes a más de una clase, la inspecciono
-
 ```
 
-Además de esta, se realizaron diversas transformaciones más, quedando el dataset para trabajar de la siguiente manera:
+Además de esta, se realizaron diversas transformaciones más, quedando el dataset para trabajar de la siguiente manera (primeras 5 filas):
 
 | CLASE |	VERSION |	CONTENEDOR |	BASE |	TIPO BASE |	LARGO BASE |	ANCHO BASE |	ALTURA BASE |	PESO BASE |	CAJA |	... |	UNID/CAJA |	CAJAS/BASE |	REFS/BASE |	CLASES/BASE |	INSPECCIÓN |	REFS/CAJA |	VOLUMEN CAJA |	VOLUMEN CAJA/REF	| VOL TOTAL |	TIPO PALLET |
 |:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|
@@ -130,8 +127,65 @@ Además de esta, se realizaron diversas transformaciones más, quedando el datas
 | F1 |	M42 |	CMAU4908460 |	AF0004 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0004 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 |	0.132600 |	DIRECTO |
 | F1 |	M42 |	CMAU4908460 |	AF0005 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0005 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 |	0.132600 |	DIRECTO |
 
-
 ## <a name="exploratory-data-analysis">🚀 Exploratory data analysis</a>
+
+Se realizaron varios gráficos utilizando Seaborn y Matplotlib, algunos ejemplos son:
+
+```py
+labels = venn.get_labels([A41, A42, M21, M41, M42], fill=['number'])
+fig, ax = venn.venn5(labels, names=['A41', 'A42', 'M21', 'M41', 'M42'])
+ax.set_title('DIAGRAMA DE VENN PARA COINCIDENCIA DE REFERENCIAS ENTRE VERSIONES')
+```
+
+<p align="center">
+  <img src="1.png" width="400" alt="logo"/>
+</p>
+
+Se generan 5 conjuntos, cada uno correspondiente a una versión. Lo que se ilustra en este gráfico es la cantidad de referencias que coinciden entre estas versiones.
+
+Como se puede ver, tenemos 680 referencias comunes a las 5 versiones (71%), y luego distintas cantidades para cada combinación posible.
+
+Esto sucede porque el producto tiene 3 funcionalidades (X-Y-Z):
+
+X. Puede ser A o M.
+Y. Puede ser 4 o 2.
+Z. Puede ser 2 o 1.
+
+Por ejemplo, la zona A42/M42 contiene 103. Esto significa que hay 103 referencias que solo utilizan estas dos versiones (por ser las únicas dos con las funcionalidades Y=4 y Z=2 a la vez).
+
+Por otro lado, la zona A41/A42 contiene 29. En este caso hay 29 referencias que solo utilizan estas dos versiones (por ser las únicas dos con las funcionalidades X=A y Y=4) a la vez.
+
+Los modelos A42/M21 no tienen nada en común, no comparten referencias en ningún cruce, salvo en el central que son las referencias comunes a todas las versiones. Profundizaremos en estos temas más adelante.
+
+```py
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(16, 12))
+sns.barplot(data=DSNX_5, x=DSNX_5.index, y='DEDICADO', color='blue', label='DEDICADO', alpha=0.7, ax=ax1)
+sns.barplot(data=DSNX_5, x=DSNX_5.index, y='DIRECTO', color='green', label='DIRECTO', alpha=0.7, bottom=DSNX_5['DEDICADO'], ax=ax1)
+sns.barplot(data=DSNX_5, x=DSNX_5.index, y='MIXTO', color='orange', label='MIXTO', alpha=0.7, bottom=DSNX_5['DEDICADO'] + DSNX_5['DIRECTO'], ax=ax1)
+
+sns.barplot(data=DSNX_5, x=DSNX_5.index, y='DEDICADO', color='blue', label='DEDICADO', alpha=0.7, ax=ax2)
+sns.barplot(data=DSNX_5, x=DSNX_5.index, y='MIXTO', color='orange', label='MIXTO', alpha=0.7, bottom=DSNX_5['DEDICADO'], ax=ax2)
+
+ax1.set_title('Suma total de pallets por clase y tipo de pallet (promedio por versión)')
+ax1.set_xlabel('Clase')
+ax1.set_ylabel('Suma pallets')
+ax1.legend()
+
+ax2.set_title('Mismo gráfico pero quitando los directos')
+ax2.set_xlabel('Clase')
+ax2.set_ylabel('Suma pallets')
+ax2.legend()
+```
+
+Las clases "S" y "CH1" conllevan gran cantidad de pallets directos, esto sucede porque suelen estar compuestos por referencias que conllevan gran volumen, son piezas estructurales del producto.
+
+Luego repetimos el mismo gráfico pero quitando los directos, para que se aprecie mejor la distribución entre dedicados y mixtos. Ya en este gráfico se empieza a dejar ver cuales son las clases que requerirán más espacio de almacenamiento.
+
+<p align="center">
+  <img src="2.png" width="400" alt="logo"/>
+</p>
+
+
 ## <a name="modelos1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
 ## <a name="modelos2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
 ## <a name="conexión-a-apis">🌿 Conexión a APIs de interés</a>
