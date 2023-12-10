@@ -74,30 +74,31 @@ Esta mercadería puede venir en diferentes tipos de packaging, el cual determina
 
 Todos estos puntos indudablemente ayudan a optimizar el proceso de ingreso de la mercadería, tanto para lo que es inspección como para almacenamiento y traslado. Es crítico que todas las piezas se encuentren en el lugar correcto a la hora de producir, y lo que buscamos es volver más eficiente el camino a dicho objetivo.
 
-Fuente **[aquí](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true)**.
+Dataset original **[aquí](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true)**.
 
 ## <a name="data-acquisition">🃏 Data acquisition</a>
 
 ### Diccionario de columnas del DS
 
-COLUMNA |	DESCRIPCIÓN |	EJEMPLO 1 |	EJEMPLO 2
-CLASE |	Sector en el cual se ensambla esta pieza | F1 |	A
-VERSION |	Versión del producto al cual pertenece esta pieza |	M42 |	A42
-CONTENEDOR |	Contenedor en el cual viene esta pieza |	CMAU4908460 |	MRSU3285393
-BASE |	Base en la cual viene esta pieza |	AF0001 |	MP001
-TIPO BASE |	Tipo de base |	IRON FRAME |	IRON FRAME
-LARGO BASE |	Largo de la base en mm |	2110 |	2250
-ANCHO BASE |	Ancho de la base en mm |	600 |	1700
-ALTURA BASE |	Altura de la base en mm |	1200 |	1050
-PESO BASE |	Peso de la base en kg |	205 |	861.0
-CAJA |	Caja en la cual viene esta pieza |	AF0001 |	MC0072
-TIPO CAJA |	Tipo de caja |	IRON FRAME |	CARTON
-LARGO CAJA |	Largo de la caja en mm |	1700 |	800
-ANCHO CAJA |	Ancho de la caja en mm |	100 |	500
-ALTURA CAJA |	Altura de la caja en mm |	130 |	530
-PESO CAJA |	Peso de la caja en kg |	153.92 |	13.85
-REFERENCIA |	Código de esta pieza |	2804110-BU01 |	6900006P201D
-UNID/CAJA |	Cantidad de esta pieza que viene en la caja |	16 |	16
+| COLUMNA |	DESCRIPCIÓN |	EJEMPLO 1 |	EJEMPLO 2 |
+|:-------------------:|:-------------------:|:-------------------:|:-------------------:|
+| CLASE |	Sector en el cual se ensambla esta pieza | F1 |	A |
+| VERSION |	Versión del producto al cual pertenece esta pieza |	M42 |	A42 |
+| CONTENEDOR |	Contenedor en el cual viene esta pieza |	CMAU4908460 |	MRSU3285393 |
+| BASE |	Base en la cual viene esta pieza |	AF0001 |	MP001 |
+| TIPO BASE |	Tipo de base |	IRON FRAME |	IRON FRAME |
+| LARGO BASE |	Largo de la base en mm |	2110 |	2250 |
+| ANCHO BASE |	Ancho de la base en mm |	600 |	1700 |
+| ALTURA BASE |	Altura de la base en mm |	1200 |	1050 |
+| PESO BASE |	Peso de la base en kg |	205 |	861.0 |
+| CAJA |	Caja en la cual viene esta pieza |	AF0001 |	MC0072 |
+| TIPO CAJA |	Tipo de caja |	IRON FRAME |	CARTON |
+| LARGO CAJA |	Largo de la caja en mm |	1700 |	800 |
+| ANCHO CAJA |	Ancho de la caja en mm |	100 |	500 |
+| ALTURA CAJA |	Altura de la caja en mm |	130 |	530 |
+| PESO CAJA |	Peso de la caja en kg |	153.92 |	13.85 |
+| REFERENCIA |	Código de esta pieza |	2804110-BU01 |	6900006P201D |
+| UNID/CAJA |	Cantidad de esta pieza que viene en la caja |	16 |	16 |
 
 ### Diagrama de la operativa
 
