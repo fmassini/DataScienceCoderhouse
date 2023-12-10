@@ -16,17 +16,17 @@ Este repositorio fue creado con el fin de almacenar todas las entregas de Federi
 
 ## 📋 Tabla de contenido
 
-1. 🐺 [Abstract](#Abstract)
-2. 🃏 [Data acquisition](#Data-acquisition)
+1. 🐺 [Abstract](#abstract)
+2. 🃏 [Data acquisition](#data-acquisition)
 3. 🔨 [Data wrangling](#data-wrangling)
-4. 🚀 [Exploratory data analysis](#Exploratory-data-analysis)
-5. 🐳 [Predicción de packaging de cajas (usando modelos sup. de ML)](#ML1)
-6. 💯 [Clasificación de bases (usando modelos no sup. de ML)](#ML2)
-7. 🌿 [Conexión a APIs de interés](#Conexión-a-APIs-de-interés)
-8. ☑️ [Predicción de tipo de pallet (usando modelos sup. de ML)](#ML3)
-9. 📈 [Final conclusion](#Final-conclusion)
+4. 🚀 [Exploratory data analysis](#exploratory-data-analysis)
+5. 🐳 [Predicción de packaging de cajas (usando modelos sup. de ML)](#modelos1)
+6. 💯 [Clasificación de bases (usando modelos no sup. de ML)](#modelos2)
+7. 🌿 [Conexión a APIs de interés](#conexión-a-apis)
+8. ☑️ [Predicción de tipo de pallet (usando modelos sup. de ML)](#modelos3)
+9. 📈 [Final conclusion](#final-conclusion)
 
-## <a name="Abstract">🐺 Abstract</a>
+## <a name="abstract">🐺 Abstract</a>
 
 La empresa Bosch es conocida por fabricar productos diversos para todo el mundo. Recientemente comenzó a producir un nuevo producto, el cual cuenta con 5 versiones distintas.
 
@@ -74,7 +74,7 @@ Todos estos puntos indudablemente ayudan a optimizar el proceso de ingreso de la
 
 Fuente: https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true
 
-## <a name="Data-acquisition">🃏 Data acquisition</a>
+## <a name="data-acquisition">🃏 Data acquisition</a>
 
 ### Diccionario de columnas del DS
 
@@ -104,9 +104,9 @@ UNID/CAJA |	Cantidad de esta pieza que viene en la caja |	16 |	16
 </p>
 
 ## <a name="data-wrangling">🔨 Data wrangling</a>
-## <a name="Exploratory-data-analysis">🚀 Exploratory data analysis</a>
-## <a name="ML1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
-## <a name="ML2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
-## <a name="Conexión-a-APIs-de-interés">🌿 Conexión a APIs de interés</a>
-## <a name="ML3">☑️ Predicción de tipo de pallet (usando modelos sup. de ML)</a>
-## <a name="Final-conclusion">📈 Final conclusion</a>
+## <a name="exploratory-data-analysis">🚀 Exploratory data analysis</a>
+## <a name="modelos1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
+## <a name="modelos2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
+## <a name="conexión-a-apis">🌿 Conexión a APIs de interés</a>
+## <a name="modelos3">☑️ Predicción de tipo de pallet (usando modelos sup. de ML)</a>
+## <a name="final-conclusion">📈 Final conclusion</a>
