@@ -107,6 +107,30 @@ Dataset original **[aquí](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftr
 </p>
 
 ## <a name="data-wrangling">🔨 Data wrangling</a>
+
+Como se explicaba en la introducción, para comenzar a producir es necesario clasificar las piezas en clases. Para esto se debe inspeccionar la mercadería que ingresa, aunque no es necesario hacerlo para todas las bases.
+
+Si las referencias que vienen en la base, pertenecen a distintas clases, se deberá inspeccionar y clasificar, de lo contrario no hará falta, y la base se abatecerá directamente a la clase correspondiente.
+
+```py
+
+DSNX['CLASES/BASE'] = DSNX.groupby(['BASE', 'VERSION'])['CLASE'].transform('nunique') #Genero la columna CLASES/BASE
+
+DSNX['INSPECCIÓN'] = np.where(DSNX['CLASES/BASE']>1, 1, 0) #Si la base tiene referencias pertenecientes a más de una clase, la inspecciono
+
+```
+
+Además de esta, se realizaron diversas transformaciones más, quedando el dataset para trabajar de la siguiente manera:
+
+| CLASE |	VERSION |	CONTENEDOR |	BASE |	TIPO BASE |	LARGO BASE |	ANCHO BASE |	ALTURA BASE |	PESO BASE |	CAJA |	... |	UNID/CAJA |	CAJAS/BASE |	REFS/BASE |	CLASES/BASE |	INSPECCIÓN |	REFS/CAJA |	VOLUMEN CAJA |	VOLUMEN CAJA/REF	| VOL TOTAL |	TIPO PALLET |
+|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|
+| F1 |	M42 |	CMAU4908460 |	AF0001 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0001 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 |	0.132600 |	DIRECTO |
+| F1 |	M42 |	CMAU4908460 |	AF0002 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0002 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 |	0.132600 |	DIRECTO |
+| F1 |	M42 |	CMAU4908460 |	AF0003 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0003 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 | 	0.132600 |	DIRECTO |
+| F1 |	M42 |	CMAU4908460 |	AF0004 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0004 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 |	0.132600 |	DIRECTO |
+| F1 |	M42 |	CMAU4908460 |	AF0005 |	IRON FRAME |	2110 |	600 |	1200 |	205.0 |	AF0005 |	... |	16 |	1 |	1 |	1 |	0 |	1 |	0.022100 |	0.022100 |	0.132600 |	DIRECTO |
+
+
 ## <a name="exploratory-data-analysis">🚀 Exploratory data analysis</a>
 ## <a name="modelos1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
 ## <a name="modelos2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
