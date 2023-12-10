@@ -1,32 +1,30 @@
 # DataScienceCoderhouse
 
-<p align="center">
-  <img src="Otros/CODERLOGO.png" width="400" alt="logo"/>
-</p>
-
-Este repositorio fue creado con el fin de almacenar todas las entregas de Federico Massini, para el curso de Data Science 2023 dictado por CoderHouse.
-
 ## Comisión: 42365
 
 ### Docente: Rubén Darío González
 
 ### Tutor: Pedro Miguel Pérez
 
+<p align="center">
+  <img src="Otros/CODERLOGO.png" width="400" alt="logo"/>
+</p>
+
+Este repositorio fue creado con el fin de almacenar todas las entregas de Federico Massini, para el curso de Data Science 2023 dictado por CoderHouse.
+
 ---
 
 ## 📋 Tabla de contenido
 
-https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/main/README.md?plain=1
-
-1. 🐺 [Abstract](#what-is-this-api)
-2. 🃏 [Data acquisition](#available-roles)
-3. 🔨 [Data wrangling](#installation)
-4. 🚀 [Exploratory data analysis](#build)
+1. 🐺 [Abstract](#Abstract)
+2. 🃏 [Data acquisition](#Data-acquisition)
+3. 🔨 [Data wrangling](#Data-wrangling)
+4. 🚀 [Exploratory data analysis](#Exploratory-data-analysis)
 5. 🐳 [Predicción de packaging de cajas (usando modelos sup. de ML)](#docker)
 6. 💯 [Clasificación de bases (usando modelos no sup. de ML)](#tests)
-7. 🌿 [Conexión a APIs de interés](#env-variables)
+7. 🌿 [Conexión a APIs de interés](#Conexión-a-APIs-de-interés)
 8. ☑️ [Predicción de tipo de pallet (usando modelos sup. de ML)](#code-analysis-and-consistency)
-9. 📈 [Final conclusion](#versions)
+9. 📈 [Final conclusion](#Final-conclusion)
 
 ## <a name="Abstract">🐺 Abstract</a>
 
