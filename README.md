@@ -231,6 +231,100 @@ Obteniendo muy buenas métricas:
 | F1 | 0.983651 | 0.983145 | 0.967755 | 
 
 ## <a name="modelos2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
+
+A continuación, intentaremos abordar otra de las preguntas que nos hicimos al inicio, existe algún patrón entre las bases?
+
+Para esto utilizaremos modelos de machine learning no supervisados.
+
+```py
+kmeans_model = KMeans(n_clusters=k, max_iter=1000, random_state=42, init='k-means++') #Defino el modelo
+kmeans_model.fit_predict(X) #Entreno y predigo
+```
+
+Con KMeans se obtuvo 3 clusters bien definidos, también utilizando el Score de Silhouette.
+
+<p align="center">
+  <img src="Otros/3.png" width="1000" alt="logo"/>
+</p>
+
 ## <a name="conexión-a-apis">🌿 Conexión a APIs de interés</a>
+
+Ya contamos con un modelo predictivo que nos permite estimar el tipo de caja en función del pedido que tengamos que hacer al proveedor, por lo que ahora indagaremos un poco en los costos.
+
+Es de interés poder conocer aproximadamente qué costo tendrá el envío de la caja de reposición que se necesita, y para esto utilizaremos una API pública del proveedor Freightos.
+
+Dicha API necesita que le digamos qué es lo que vamos a enviar, cuanto pesa, sus dimensiones, la cantidad y desde/hacia donde se dirige el envío. Una vez contemos con toda esta información, la misma se debe representar dentro de un URL con el formato correcto, y así se podrá hacer la consulta.
+
+API **[aquí](https://ship.freightos.com/api/shippingCalculator)**.
+
+### Ejemplo:
+
+```py
+loadtype = 'boxes' #Enviaremos una caja
+weight = 200 #Peso en kg
+width = 50 #Ancho en cm
+length = 50 #Largo en cm
+height = 50 #Altura en cm
+origin = 'PVG' #El origen del envío será Shangai, el proveedor nos enviará el pedido desde allí
+quantity = 1 #Cantidad a pedir
+destination = 'JFK' #El destino puede ser, por ejemplo, Nueva York
+url = 'https://ship.freightos.com/api/shippingCalculator?loadtype=' + loadtype + '&weight=' + str(weight) + '&width=' + str(width) + '&length=' + str(length) + '&height=' + str(height) + '&origin=' + origin + '&quantity=' + str(quantity) + '&destination=' + destination
+url #Una vez se tienen todos los datos, se combinan como muestra la fila anterior, y así generamos el URL correcto para la consulta
+```
+Se realizaron consultas como esta de forma masiva, para sacar conclusiones sobre los costos y demoras de envíos para todo tipo de cajas.
+
+<p align="center">
+  <img src="Otros/4.png" width="1000" alt="logo"/>
+</p>
+
+Estos gráficos nos dan una idea de cómo se comportan los costos y los días de viaje, en función del volumen y el peso de cada caja. A su vez, podemos identificar el tipo de caja por colores.
+
+En cuanto al costo, claramente aumenta a más peso o volumen. Aunque, cómo habíamos previsto en las primeras consultas de la API y en el gráfico anterior, el volumen es mucho más contundente a la hora de definir el costo.
+
+Para los días de viaje, a priori no parece que el peso tenga un gran impacto. El volumen sí marca alguna tendencia, pero también tenemos excepciones.
+
 ## <a name="modelos3">☑️ Predicción de tipo de pallet (usando modelos sup. de ML)</a>
+
+Para finalizar el análisis de las preguntas iniciales, se intentará responder si es posible predecir en qué tipo de pallet irá una referencia, solamente conociendo información de ella, y no de las bases/cajas involucradas en el proceso.
+
+Recordemos que se tienen bases inspeccionables y no inspeccionables (dependiendo de la cantidad de clases involucradas en la base). Las referencias que salen de las no inspeccionables, van en pallets directos, ya que todas pertenecen a la misma clase, por ende no hace falta separar. Por otro lado, las demás irán en pallets mixtos o dedicados, dependiendo del volumen total que conlleve cada referencia.
+
+Por ejemplo, si todas las piezas de una referencia llegan a ocupar el volumen de medio pallet, ese pallet tendrá que ser compartido con otras referencias hasta completarse (esto es un pallet mixto). En cambio, si la cantidad de piezas de una referencia es suficiente como para completar un pallet, este será un pallet dedicado.
+
+En resumen, para determinar el tipo de pallet se tienen en cuanta variables como:
+
+Si la base es inspeccionable o no, lo cual depende de la cantidad de clases/base.
+El volumen total que ocupan todas las piezas de una referencia, lo cual depende del volumen de cada caja y de la cantidad de piezas dentro de la caja.
+Todas estas variables involucran bases y cajas, queremos saber si, teniendo información solamente de la referencia, podemos determinar de antemano en que tipo de pallet irá.
+
+Se realizó el split de trainval y test, y se dividió el dataset en KFolds para hacer CrossVal.
+
+```py
+x_trainval, x_test, y_trainval, y_test = train_test_split(DSNX_11.iloc[:,:-1],DSNX_11.iloc[:,-1], test_size=0.30, random_state=42, stratify=DSNX_11.iloc[:,-1]) #Separamos en trainval y test
+
+skf = StratifiedKFold(n_splits=5, random_state=42, shuffle=True) #Haremos CrossVal con 5 splits
+splits = skf.get_n_splits(x_trainval, y_trainval)
+```
+
+También se generaron pipelines para poder transformar las variables numéricas y categóricas.
+
+```py
+categorical_transformer = Pipeline(steps=[('onehot', OneHotEncoder(sparse_output=False, drop='first'))]) #Parametrizo el OHE, dropeo las columnas que no aportan
+numeric_transformer = Pipeline(steps=[('scaler', StandardScaler())]) #Parametrizo el SS
+```
+
+Finalmente, se entrenaron 5 modelos (con tuneo de hiperparámetros).
+
+| Modelo | Accuracy promedio (VAL) |	Acuraccy final (TEST) |
+|:-------------------:|:-------------------:|:-------------------:|
+| KNeighborsClassifier | 0.992 | 0.993 |
+| LogisticRegression | 0.988 | 0.986 |
+| SVM | 0.897 | 0.889 |
+| GradientBoostingClassifier | 0.996 | 0.997 |
+| MLPClassifier | 0.995 | 0.995 |
+
+Estas son las correspondientes matrices de confusión:
+
+https://github.com/fmassini/DataScienceCoderhouse/assets/145942477/811db3af-c397-439e-b182-58f2dd561167
+
 ## <a name="final-conclusion">📈 Final conclusion</a>
