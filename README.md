@@ -131,6 +131,8 @@ Además de esta, se realizaron diversas transformaciones más, quedando el datas
 
 Se realizaron varios gráficos utilizando Seaborn y Matplotlib, algunos ejemplos son:
 
+### Matplotlib
+
 ```py
 labels = venn.get_labels([A41, A42, M21, M41, M42], fill=['number'])
 fig, ax = venn.venn5(labels, names=['A41', 'A42', 'M21', 'M41', 'M42'])
@@ -138,7 +140,7 @@ ax.set_title('DIAGRAMA DE VENN PARA COINCIDENCIA DE REFERENCIAS ENTRE VERSIONES'
 ```
 
 <p align="center">
-  <img src="Otros/1.png" width="400" alt="logo"/>
+  <img src="Otros/1.png" width="1200" alt="logo"/>
 </p>
 
 Se generan 5 conjuntos, cada uno correspondiente a una versión. Lo que se ilustra en este gráfico es la cantidad de referencias que coinciden entre estas versiones.
@@ -156,6 +158,8 @@ Por ejemplo, la zona A42/M42 contiene 103. Esto significa que hay 103 referencia
 Por otro lado, la zona A41/A42 contiene 29. En este caso hay 29 referencias que solo utilizan estas dos versiones (por ser las únicas dos con las funcionalidades X=A y Y=4) a la vez.
 
 Los modelos A42/M21 no tienen nada en común, no comparten referencias en ningún cruce, salvo en el central que son las referencias comunes a todas las versiones. Profundizaremos en estos temas más adelante.
+
+### Seaborn
 
 ```py
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(16, 12))
@@ -176,15 +180,13 @@ ax2.set_xlabel('Clase')
 ax2.set_ylabel('Suma pallets')
 ax2.legend()
 ```
+<p align="center">
+  <img src="Otros/2.png" width="1200" alt="logo"/>
+</p>
 
 Las clases "S" y "CH1" conllevan gran cantidad de pallets directos, esto sucede porque suelen estar compuestos por referencias que conllevan gran volumen, son piezas estructurales del producto.
 
 Luego repetimos el mismo gráfico pero quitando los directos, para que se aprecie mejor la distribución entre dedicados y mixtos. Ya en este gráfico se empieza a dejar ver cuales son las clases que requerirán más espacio de almacenamiento.
-
-<p align="center">
-  <img src="Otros/2.png" width="400" alt="logo"/>
-</p>
-
 
 ## <a name="modelos1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
 ## <a name="modelos2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
