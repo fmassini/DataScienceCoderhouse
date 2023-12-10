@@ -18,7 +18,7 @@ Este repositorio fue creado con el fin de almacenar todas las entregas de Federi
 
 1. 🐺 [Abstract](#Abstract)
 2. 🃏 [Data acquisition](#Data-acquisition)
-3. 🔨 [Data wrangling](#Data-wrangling)
+3. 🔨 [Data wrangling](#data-wrangling)
 4. 🚀 [Exploratory data analysis](#Exploratory-data-analysis)
 5. 🐳 [Predicción de packaging de cajas (usando modelos sup. de ML)](#ML1)
 6. 💯 [Clasificación de bases (usando modelos no sup. de ML)](#ML2)
@@ -103,7 +103,7 @@ UNID/CAJA |	Cantidad de esta pieza que viene en la caja |	16 |	16
   <img src="Otros/Flujo.jpg" width="400" alt="logo"/>
 </p>
 
-## <a name="Data-wrangling">🔨 Data wrangling</a>
+## <a name="data-wrangling">🔨 Data wrangling</a>
 ## <a name="Exploratory-data-analysis">🚀 Exploratory data analysis</a>
 ## <a name="ML1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
 ## <a name="ML2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
