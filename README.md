@@ -20,10 +20,10 @@ Este repositorio fue creado con el fin de almacenar todas las entregas de Federi
 2. 🃏 [Data acquisition](#Data-acquisition)
 3. 🔨 [Data wrangling](#Data-wrangling)
 4. 🚀 [Exploratory data analysis](#Exploratory-data-analysis)
-5. 🐳 [Predicción de packaging de cajas (usando modelos sup. de ML)](#docker)
-6. 💯 [Clasificación de bases (usando modelos no sup. de ML)](#tests)
+5. 🐳 [Predicción de packaging de cajas (usando modelos sup. de ML)](#ML1)
+6. 💯 [Clasificación de bases (usando modelos no sup. de ML)](#ML2)
 7. 🌿 [Conexión a APIs de interés](#Conexión-a-APIs-de-interés)
-8. ☑️ [Predicción de tipo de pallet (usando modelos sup. de ML)](#code-analysis-and-consistency)
+8. ☑️ [Predicción de tipo de pallet (usando modelos sup. de ML)](#ML3)
 9. 📈 [Final conclusion](#Final-conclusion)
 
 ## <a name="Abstract">🐺 Abstract</a>
@@ -74,7 +74,7 @@ Todos estos puntos indudablemente ayudan a optimizar el proceso de ingreso de la
 
 Fuente: https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true
 
-## <a name="Data acquisition">🃏 Data acquisition</a>
+## <a name="Data-acquisition">🃏 Data acquisition</a>
 
 ### Diccionario de columnas del DS
 
@@ -103,10 +103,10 @@ UNID/CAJA |	Cantidad de esta pieza que viene en la caja |	16 |	16
   <img src="Otros/Flujo.jpg" width="400" alt="logo"/>
 </p>
 
-## <a name="Data wrangling">🔨 Data wrangling</a>
-## <a name="Exploratory data analysis">🚀 Exploratory data analysis</a>
-## <a name="Predicción de packaging de cajas (usando modelos sup. de ML">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
-## <a name="Clasificación de bases (usando modelos no sup. de ML">💯 Clasificación de bases (usando modelos no sup. de ML</a>
-## <a name="Conexión a APIs de interés">🌿 Conexión a APIs de interés</a>
-## <a name="Predicción de tipo de pallet (usando modelos sup. de ML)">☑️ Predicción de tipo de pallet (usando modelos sup. de ML)</a>
-## <a name="Final conclusion">📈 Final conclusion</a>
+## <a name="Data-wrangling">🔨 Data wrangling</a>
+## <a name="Exploratory-data-analysis">🚀 Exploratory data analysis</a>
+## <a name="ML1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
+## <a name="ML2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
+## <a name="Conexión-a-APIs-de-interés">🌿 Conexión a APIs de interés</a>
+## <a name="ML3">☑️ Predicción de tipo de pallet (usando modelos sup. de ML)</a>
+## <a name="Final-conclusion">📈 Final conclusion</a>
