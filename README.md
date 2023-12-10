@@ -150,7 +150,9 @@ Como se puede ver, tenemos 680 referencias comunes a las 5 versiones (71%), y lu
 Esto sucede porque el producto tiene 3 funcionalidades (X-Y-Z):
 
 X. Puede ser A o M.
+
 Y. Puede ser 4 o 2.
+
 Z. Puede ser 2 o 1.
 
 Por ejemplo, la zona A42/M42 contiene 103. Esto significa que hay 103 referencias que solo utilizan estas dos versiones (por ser las únicas dos con las funcionalidades Y=4 y Z=2 a la vez).
