@@ -325,6 +325,16 @@ Finalmente, se entrenaron 5 modelos (con tuneo de hiperparámetros).
 
 Estas son las correspondientes matrices de confusión:
 
-https://github.com/fmassini/DataScienceCoderhouse/assets/145942477/811db3af-c397-439e-b182-58f2dd561167
+https://github.com/fmassini/DataScienceCoderhouse/assets/145942477/3d4a3d0a-c14c-4f40-a302-a18c2957cd7f
 
 ## <a name="final-conclusion">📈 Final conclusion</a>
+
+Quiero aprovechar este momento para expresar mi más sincero agradecimiento a profesores y tutores de Coderhouse.
+
+Su dedicación y apoyo incondicional han sido fundamentales en mi aprendizaje durante todo el año.
+
+Además, las herramientas adquiridas me inspiran a continuar creciendo profesionalmente en el campo de la Ciencia de Datos.
+
+Miro hacia atrás, y me parece increíble la evolución que tuve desde principio de año, que sabía codear de manera muy básica, a ahora que he entrenado modelos y hecho gráficos de todo tipo.
+
+Estoy emocionado por aplicar estos aprendizajes en mi trabajo y seguir mejorando día a día, gracias por todo!!
