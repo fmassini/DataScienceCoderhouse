@@ -12,7 +12,7 @@
 
 Este repositorio fue creado con el fin de almacenar todas las entregas de Federico Massini, para el curso de Data Science 2023 dictado por CoderHouse.
 
-Link a presentación ejecutiva **[aquí.]([[https://github.com/antoinezanardi/werewolves-assistant-api-next/tree/main/env](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true](https://www.canva.com/design/DAFunxBYZVA/T_8mOwGeap-Ib5fWWcb-tQ/edit?utm_content=DAFunxBYZVA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)))**.
+Link a presentación ejecutiva **[aquí](https://www.canva.com/design/DAFunxBYZVA/T_8mOwGeap-Ib5fWWcb-tQ/edit?utm_content=DAFunxBYZVA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)**.
 
 ---
 
@@ -74,7 +74,7 @@ Esta mercadería puede venir en diferentes tipos de packaging, el cual determina
 
 Todos estos puntos indudablemente ayudan a optimizar el proceso de ingreso de la mercadería, tanto para lo que es inspección como para almacenamiento y traslado. Es crítico que todas las piezas se encuentren en el lugar correcto a la hora de producir, y lo que buscamos es volver más eficiente el camino a dicho objetivo.
 
-**[Fuente aquí.]([https://github.com/antoinezanardi/werewolves-assistant-api-next/tree/main/env](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true))**.
+Fuente **[aquí](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftrbbM4lVSYoR5cN5qbC2c/edit?usp=sharing&ouid=111044325679429769254&rtpof=true&sd=true)**.
 
 ## <a name="data-acquisition">🃏 Data acquisition</a>
 
