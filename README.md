@@ -35,3 +35,5 @@ https://github.com/antoinezanardi/werewolves-assistant-api-next/blob/main/README
 11. ✨ [Misc commands](#misc-commands)
 12. ©️ [License](#license)
 13. ❤️ [Contributors](#contributors)
+
+## <a name="what-is-this-api">🐺 What is this API ?</a>
