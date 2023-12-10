@@ -103,7 +103,7 @@ Dataset original **[aquí](https://docs.google.com/spreadsheets/d/1PeO17z4eE4ftr
 ### Diagrama de la operativa
 
 <p align="center">
-  <img src="Otros/Flujo.jpg" width="400" alt="logo"/>
+  <img src="Otros/Flujo.jpg" width="600" alt="logo"/>
 </p>
 
 ## <a name="data-wrangling">🔨 Data wrangling</a>
@@ -140,7 +140,7 @@ ax.set_title('DIAGRAMA DE VENN PARA COINCIDENCIA DE REFERENCIAS ENTRE VERSIONES'
 ```
 
 <p align="center">
-  <img src="Otros/1.png" width="1200" alt="logo"/>
+  <img src="Otros/1.png" width="1000" alt="logo"/>
 </p>
 
 Se generan 5 conjuntos, cada uno correspondiente a una versión. Lo que se ilustra en este gráfico es la cantidad de referencias que coinciden entre estas versiones.
@@ -181,7 +181,7 @@ ax2.set_ylabel('Suma pallets')
 ax2.legend()
 ```
 <p align="center">
-  <img src="Otros/2.png" width="1200" alt="logo"/>
+  <img src="Otros/2.png" width="1000" alt="logo"/>
 </p>
 
 Las clases "S" y "CH1" conllevan gran cantidad de pallets directos, esto sucede porque suelen estar compuestos por referencias que conllevan gran volumen, son piezas estructurales del producto.
@@ -189,6 +189,47 @@ Las clases "S" y "CH1" conllevan gran cantidad de pallets directos, esto sucede 
 Luego repetimos el mismo gráfico pero quitando los directos, para que se aprecie mejor la distribución entre dedicados y mixtos. Ya en este gráfico se empieza a dejar ver cuales son las clases que requerirán más espacio de almacenamiento.
 
 ## <a name="modelos1">🐳 Predicción de packaging de cajas (usando modelos sup. de ML</a>
+
+En esta etapa del proyecto analizaremos el packaging de las cajas.
+
+Muchas veces sucede que, debido a roturas, logística tenga que pedir puntualmente al proveedor cajas con piezas para realizar reemplazos.
+
+En virtud de esto, es de interés saber si es posible predecir que tipo de packaging enviará el proveedor, en función del contenido que tendrá la caja (o sea en función del pedido de piezas a reponer).
+
+Tener esta información ayudaría a preparar de manera anticipada, las condiciones de almacenamiento necesarias para dicho arribo de producto.
+
+A su vez, poder deducir el criterio que usa el proveedor para seleccionar el packaging, podría ayudar a dar recomendaciones al mismo de cómo mejorarlo.
+
+Se realizó el split de los datos, para entrenar, validar y testear:
+
+```py
+x_trainval, x_test, y_trainval, y_test = train_test_split(PCA_DSNX_7,DSNX_7.iloc[:,6], test_size=0.30, random_state=42, stratify=DSNX_7.iloc[:,6]) #Divido DS en trainval y test
+x_train, x_val, y_train, y_val = train_test_split(x_trainval,y_trainval, test_size=0.30, random_state=42, stratify=y_trainval) #Divido el trainval en val y train
+```
+Y se entrenaron modelos, Decision Tree:
+
+```py
+modelo_arbol = DecisionTreeClassifier() #Entreno
+modelo_arbol.fit(x_train,y_train)
+y_predict = modelo_arbol.predict(x_val) #Valido
+```
+Random Forest Classifier:
+
+```py
+modelo_arbol2 = RandomForestClassifier() #Entreno
+modelo_arbol2.fit(x_train,y_train)
+y_predict2 = modelo_arbol2.predict(x_val) #Valido
+```
+
+Obteniendo muy buenas métricas:
+
+| Métricas | Decision Tree VAL |	Random Forest VAL |	Random Forest TEST |
+|:-------------------:|:-------------------:|:-------------------:|:-------------------:|
+| Precision |	0.996079 |	0.996012 |	0.945155 |
+| Recall |	0.972899 |	0.971946 |	0.997515 |
+| Accuracy |	0.998496 |	0.998281 |	0.998346 |
+| F1 | 0.983651 | 0.983145 | 0.967755 | 
+
 ## <a name="modelos2">💯 Clasificación de bases (usando modelos no sup. de ML</a>
 ## <a name="conexión-a-apis">🌿 Conexión a APIs de interés</a>
 ## <a name="modelos3">☑️ Predicción de tipo de pallet (usando modelos sup. de ML)</a>
