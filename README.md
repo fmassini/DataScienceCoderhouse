@@ -138,7 +138,7 @@ ax.set_title('DIAGRAMA DE VENN PARA COINCIDENCIA DE REFERENCIAS ENTRE VERSIONES'
 ```
 
 <p align="center">
-  <img src="1.png" width="400" alt="logo"/>
+  <img src="Otros/1.png" width="400" alt="logo"/>
 </p>
 
 Se generan 5 conjuntos, cada uno correspondiente a una versión. Lo que se ilustra en este gráfico es la cantidad de referencias que coinciden entre estas versiones.
@@ -182,7 +182,7 @@ Las clases "S" y "CH1" conllevan gran cantidad de pallets directos, esto sucede 
 Luego repetimos el mismo gráfico pero quitando los directos, para que se aprecie mejor la distribución entre dedicados y mixtos. Ya en este gráfico se empieza a dejar ver cuales son las clases que requerirán más espacio de almacenamiento.
 
 <p align="center">
-  <img src="2.png" width="400" alt="logo"/>
+  <img src="Otros/2.png" width="400" alt="logo"/>
 </p>
 
 
